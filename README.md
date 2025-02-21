@@ -1,10 +1,22 @@
 # Fedora Minimal Documentation
 
-This is the build repository for the Fedora Minimal Documentation Websites. The latest published version of these sites can be found at [Fedora Minimal Docs](https://docs.fedoraproject.org/en-US/minimal/) and [Fedora Minimal SIG Docs](https://docs.fedoraproject.org/en-US/minimal-sig/). Please report issues any issues with the Fedora Minimal documentation, or submit pull requests in this repository.
+This is the build repository for the Fedora Minimal Documentation Websites. The published versions of these sites can be found at [Fedora Minimal Docs](https://docs.fedoraproject.org/en-US/minimal/) and [Fedora Minimal SIG Docs](https://docs.fedoraproject.org/en-US/minimal-sig/). Please report issues any issues with the Fedora Minimal documentation, or submit pull requests in this repository.
+
+## Contents
+
+### `minimal-docs`
+
+The `minimal-docs` directory contains the documentation for users and developers of the Fedora Minimal spin.
+
+### `minimal-sig-docs`
+
+The `minimal-sig-docs` directory contains the documentation about the Fedora Minimal SIG.
+
+## Build and Preview
 
 The Fedora Minimal documentation is built using [Antora](https://antora.org). General details for getting started can be found on the main Fedora Project [documentation guide](https://docs.fedoraproject.org/en-US/fedora-docs/contributing-docs/).
 
-## Testing your changes locally
+### Viewing locally
 
 Building and previewing is done in containers and should work on any machine that has `podman` or `docker` available.
 
