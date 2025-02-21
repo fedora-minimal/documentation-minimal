@@ -1,0 +1,24 @@
+site:
+  title: Local Preview
+  start_page: minimal:ROOT:index.adoc
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: minimal-docs
+    - url: .
+      branches: HEAD
+      start_path: minimal-sig-docs
+ui:
+  bundle:
+    url: https://gitlab.com/fedora/docs/docs-website/ui-bundle/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  default_layout: with_menu
+output:
+  clean: true
+  dir: ./public
+  destinations:
+  - provider: archive
+runtime:
+  fetch: true
+  cache_dir: ./cache
