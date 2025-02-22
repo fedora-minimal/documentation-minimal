@@ -2,6 +2,8 @@
 
 This is the build repository for the Fedora Minimal Documentation Websites. The published versions of these sites can be found at [Fedora Minimal Docs](https://docs.fedoraproject.org/en-US/minimal/) and [Fedora Minimal SIG Docs](https://docs.fedoraproject.org/en-US/minimal-sig/). Please report issues any issues with the Fedora Minimal documentation, or submit pull requests in this repository.
 
+The latest development versions of these sites (generated from the `main` branch) can be found at [Fedora Minimal Docs](https://fedora-minimal.github.io/minimal-documentation/minimal) and [Fedora Minimal SIG Docs](https://fedora-minimal.github.io/minimal-documentation/minimal).
+
 ## Contents
 
 ### `minimal-docs`
