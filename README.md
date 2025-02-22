@@ -20,20 +20,8 @@ The Fedora Minimal documentation is built using [Antora](https://antora.org). Ge
 
 Building and previewing is done in containers and should work on any machine that has `podman` or `docker` available.
 
-**To build the site**, run:
-
-```bash
-$ ./build.sh
+```console
+$ ./docsbuilder.sh
 ```
 
-Please note the build script uses Docker to build the site in an isolated environment.
-You might be asked for a root password in order to run it.
-
-The result will be in a `./public/` directory.
-
-**To preview the site**, either open the `./public/en_US/index.html` file in a web browser, or run:
-
-```bash
-$ ./preview.sh
-```
-
+Will compile and start a webserver that serves content at `https://localhost:8000`. It will automatically watch for any changes and recompile the website for you. `docsbuilder.sh` takes a `-h` argument to see more options.
