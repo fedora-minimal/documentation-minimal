@@ -1,0 +1,13 @@
+= Changelog
+
+== Fedora 42
+
+The *Fedora Minimal SIG* was created to outline better what *Fedora Minimal* is, its usecases, and its differences from other Fedora variants.
+
+== Fedora 38
+
+The *Fedora Minimal* aarch64 image became a https://docs.fedoraproject.org/en-US/releases/f38/blocking/[Release Blocking] artifact.
+
+== History
+
+*Fedora Minimal* has been around in some way or shape since around Fedora 11 or 12. There are a few wiki pages around for the spin.
