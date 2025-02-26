@@ -1,0 +1,21 @@
+= Changelog
+
+== Fedora 43
+
+During this release we focused on minimizing the package set that is installed by default in *Fedora Minimal*.
+
+- Disabled rescue kernel generation on boot. This was accidentally enabled again in one of the previous versions but turned off again in Fedora 43. See https://github.com/fedora-minimal/distribution-minimal/issues/10[discussion].
+- Removed `firewalld` from the package set. See https://github.com/fedora-minimal/distribution-minimal/issues/1[discussion].
+
+
+== Fedora 42
+
+The *Fedora Minimal SIG* was created to outline better what *Fedora Minimal* is, its usecases, and its differences from other Fedora variants.
+
+== Fedora 38
+
+The *Fedora Minimal* aarch64 image became a https://docs.fedoraproject.org/en-US/releases/f38/blocking/[Release Blocking] artifact.
+
+== History
+
+*Fedora Minimal* has been around in some way or shape since around Fedora 11 or 12. There are a few wiki pages around for the spin.
