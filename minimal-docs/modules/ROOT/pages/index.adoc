@@ -13,6 +13,12 @@ This makes *Fedora Minimal* well suited to be used when you want to often rebuil
 
 While there is no over-arching definition of what makes Fedora there are things that the large majority of Fedora variants share. *Fedora Minimal* deviates from some of them. Due to the expectation that end-users will often customize their images at build-, or provision time these differences only apply to the images downloaded from the https://fedoraproject.org/spins/minimal/download[Fedora Website].
 
+These are the differences we feel are the most important and users should be aware of before choosing to base their install on *Fedora Minimal*.
+
+=== No `firewalld`
+
+Many Fedora variants have _firewalld_ installed and enabled by default. *Fedora Minimal* does not ship with `firewalld` nor any other firewall by default allowing you to pick and choose instead.
+
 === `ext4` on `/`
 
 Most Fedora variants have _btrfs_ on their root partition. It is something Fedora is well known for. *Fedora Minimal* opts to have the `ext4` filesystem on its root partition:
