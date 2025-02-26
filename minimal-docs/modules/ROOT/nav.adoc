@@ -1,2 +1,7 @@
 * xref:index.adoc[Welcome]
 * xref:changelog.adoc[Changelog]
+
+* xref:user-guide/index.adoc[User Guide]
+** xref:user-guide/installation.adoc[Installation]
+** xref:user-guide/customization/index.adoc[Customization]
+*** xref:user-guide/customization/common.adoc[Common Blueprints]

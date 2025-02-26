@@ -1,0 +1,22 @@
+= Installation
+
+== Getting an Image
+
+=== Download
+
+Pre-built uncustomized images of *Fedora Minimal* are available from the https://fedoraproject.org/spins/minimal/download[Fedora Spins page].
+
+=== Build
+
+You can build a *Fedora Minimal* image locally. Doing so ensures that it is built with the latest available packages and that you can apply your xref:user-guide/customization/index.adoc[build-time customizations] directly.
+
+To build *Fedora Minimal* you'll need access to a *Fedora* system:
+
+[source,console]
+----
+$ sudo dnf install -y image-builder
+$ sudo image-builder build --distro fedora-43 minimal-raw-zst
+# ...
+----
+
+You can xref:user-guide/customization/index.adoc[customize] your build as well by adding packages, including containers, or other things.
