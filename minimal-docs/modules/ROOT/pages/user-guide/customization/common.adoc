@@ -1,0 +1,35 @@
+= Common Blueprints 
+
+== Packages
+
+== Partitioning
+
+By default *Fedora Minimal* uses raw partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways:
+
+=== Mode
+
+More information about how `image-builder` uses partitioning mode customizations can be found in the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation].
+
+==== btrfs
+
+To build an image that uses btrfs:
+
+[source,toml]
+----
+customizations.partitioning_mode = "btrfs"
+----
+
+This will convert the partition that contains the root mountpoint `/` to a btrfs volume containing a root subvolume.
+
+==== lvm
+
+To build an image that uses LVM:
+
+[source,toml]
+----
+customizations.partitioning_mode = "lvm"
+----
+
+This will convert the partition that contains the root mountpoint `/` to an LVM Volume Group containing a root Logical Volume.
+
+== Users

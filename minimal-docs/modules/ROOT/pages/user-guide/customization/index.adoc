@@ -1,0 +1,111 @@
+= Customization
+
+*Fedora Minimal* is a great base Fedora to start layering your own choices on top of. Since it comes with very little, and doesn't do much you're free to do whatever you want with it. When customizing your *Fedora Minimal* you need to decide what you want to change, or add, and when you want to do that.
+
+Generally speaking you likely want to do your customizations at <<Build Time,build>> time leaving only deployment specific things to be configured later. For example you pick your packages, partitioning, and services at build time but let your users choose the locale, keyboard layout, and timezone during first boot of the system.
+
+== Why?
+
+== When?
+
+It is possible to customize *Fedora Minimal* at various stages.
+
+=== Build Time
+
+Configuration at build time is the preferred way to customize *Fedora Minimal*. It makes it easy to rebuild your image with the latest software, share your customizations, and to share the built image itself for consumption by other users.
+
+When xref:user-guide/installation.adoc[building] an image it is possible to pass a blueprint file describing what you want to change. For example, using the following blueprint file:
+
+[source,toml]
+----
+packages = [
+    { name = "tmux" },
+    { name = "firewalld" },
+]
+
+customizations.user = [
+    { name = "user", "key" = "ssh-ed25519 XXX user@localhost", groups = ["wheel"] }
+]
+----
+
+With the following command:
+
+
+[source,console]
+----
+$ sudo dnf install -y image-builder
+$ sudo image-builder build --distro fedora-43 --blueprint my-changes.toml minimal-raw-zst
+# ...
+----
+
+Will get you a *Fedora Minimal* with `tmux`, and `firewalld` installed and a user called `user` with the given SSH key in its authorized keys.
+
+We have a list of xref:user-guide/customization/common.adoc[common blueprints] handy for you if you want some inspiration of what is possible. If you want to know more you can also read the `image-builder` https://osbuild.org/docs/user-guide/blueprint-reference/[documentation on the blueprint format].
+
+=== Provision Time
+
+The provisioning time is the span between when you <<Build Time,build>> your image and the time that the image is running on a system. We can further divide the provision time in a few stages.
+
+==== Image
+
+It is possible to customize an image after it is built. The most common use cause would be to set up some values that would normally be prompted for when the machine <<First-boot,boots for the first time>>. We generally recommend against customizing an image directly unless it's to do what is written here. Any other customizations that need to happen are better done during <<Build Time,build>> as they are error prone and can interfere with your systems operation, or its deployment otherwise.
+
+*Fedora Minimal* uses `systemd-firstboot` for its <<First-boot,first-boot>> setup. `systemd-firstboot` can also be used to customize an image directly. You can do so like this:
+
+[source,console]
+----
+$ sudo systemd-firstboot --image=disk.img --prompt
+# ...
+----
+
+When executed this command will prompt for information that is not yet stored inside the image. It can configure:
+
+1. locale
+2. timezone
+3. keymap
+4. hostname
+5. `root` password
+
+If you have customized any of these during <<Build Time,build>> then `systemd-firstboot` will not prompt for them when customizing the image.
+
+==== First-boot
+
+First boot customizations take place during the first boot of the system. *Fedora Minimal* is set up so that any unconfigured values that are necessary for the system to progress into runtime can be configured on the console. This only happens once: on the first boot of the system. The customizations for first boot can be skipped by configuring them in the <<Image,image>> or <<Pre-boot,pre-boot>> stages. 
+
+*Fedora Minimal* uses `systemd-firstboot` for its <<First-boot,first-boot>> setup. When the system detects that it is booting for the first time `systemd-firstboot` verifies if the following information is available:
+
+1. locale
+2. timezone
+3. keymap
+4. hostname
+5. `root` password
+
+If you have customized any of these during <<Build Time,build>>, or <<Image,image>> then `systemd-firstboot` will not prompt for them. When all information has been previously provided the prompt will be skipped entirely.
+
+==== Installation
+
+Customization during installation is possible to some degree if you downloaded or <<Build Time,built>> a *Fedora Minimal* installer.
+
+=== Run Time
+
+Runtime customizations are those that take place after the system has booted and entered its running state. Any changes you make after this state has been reached are called run time customizations. There's nothing special in *Fedora Minimal* for this.
+
+== Suggestions
+
+It can be a bit difficult to figure out which customizations should be done when. In general we recommend to do as much as possible at <<Build Time,build time>> with very little happening in the later lifecycle of an image. Following this suggestion means it is easy for you to distribute your image and install it on varied systems, leaving only what is absolutely necessary to be done on a per-deployment basis.
+
+Some examples of things you might want to do at <<Build Time,build time>>:
+
+1. Installing packages.
+2. Changing configuration files.
+3. Adding system user accounts for run time management.
+4. Picking a partition layout if your deployment permits.
+5. Switching the kernel for another one.
+
+Some examples of things you might want to leave to the <<Provision Time,provisioning time>> of a system:
+
+1. Setting the timezone of the system.
+2. Picking a keyboard layout.
+3. Growing partitions and filesystems to fill a disk.
+4. Setting network configuration.
+5. Creating a personal user account.
