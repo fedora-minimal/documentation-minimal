@@ -5,13 +5,13 @@ This is the documentation for *Fedora Minimal*, a Fedora Spin that focuses on ha
 - A small set of packages.
 - A small size footprint.
 - A small amount of complexity.
-- A large amount of customizability.
+- A large amount of xref:user-guide/customization/index.adoc[customizability].
 
 This makes *Fedora Minimal* well suited to be used when you want to often rebuild, or redeploy, your system. *Fedora Minimal* also tries to serve well as a base for further customization.
 
 == Differences
 
-While there is no over-arching definition of what makes Fedora there are things that the large majority of Fedora variants share. *Fedora Minimal* deviates from some of them. Due to the expectation that end-users will often customize their images at build-, or provision time these differences only apply to the images downloaded from the https://fedoraproject.org/spins/minimal/download[Fedora Website].
+While there is no over-arching definition of what makes Fedora there are things that the large majority of Fedora variants share. *Fedora Minimal* deviates from some of them. Due to the expectation that end-users will often xref:user-guide/customization/index.adoc[customize] their images at build-, or provision time these differences only apply to the images downloaded from the https://fedoraproject.org/spins/minimal/download[Fedora Website].
 
 These are the differences we feel are the most important and users should be aware of before choosing to base their install on *Fedora Minimal*.
 
@@ -26,6 +26,6 @@ Most Fedora variants have _btrfs_ on their root partition. It is something Fedor
 - Our images want to require minimal support from firmware to be booted. This means that sometimes we have to deal with situations where firmware wants to read directly from the root filesystem. btrfs support exists in firmware such as u-boot, however it is often turned off or not available.
 - We want to support `systemd-firstboot --image=` for our users to provision images before booting them. `systemd-firstboot --image=` does not currently understand a _btrfs_ root partition.
 
-Because *Fedora Minimal* focuses on customizability you can build it with btrfs, see the example.
+Because *Fedora Minimal* focuses on customizability it can be xref:user-guide/installation.adoc[built] with btrfs, see our xref:user-guide/customization/common.adoc#_btrfs[common blueprints].
 
 *Starting from*: Fedora 38.
