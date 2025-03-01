@@ -82,10 +82,6 @@ First boot customizations take place during the first boot of the system. *Fedor
 
 If you have customized any of these during <<Build Time,build>>, or <<Image,image>> then `systemd-firstboot` will not prompt for them. When all information has been previously provided the prompt will be skipped entirely.
 
-==== Installation
-
-Customization during installation is possible to some degree if you downloaded or <<Build Time,built>> a *Fedora Minimal* installer.
-
 === Run Time
 
 Runtime customizations are those that take place after the system has booted and entered its running state. Any changes you make after this state has been reached are called run time customizations. There's nothing special in *Fedora Minimal* for this.
