@@ -4,7 +4,7 @@
 
 == Partitioning
 
-By default *Fedora Minimal* uses raw partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways:
+By default *Fedora Minimal* uses raw partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways. If you want to know more about partitioning and how it behaves you can read the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
 
 === btrfs
 
