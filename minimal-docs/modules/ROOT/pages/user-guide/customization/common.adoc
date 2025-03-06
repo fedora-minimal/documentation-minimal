@@ -18,13 +18,11 @@ To build an image that uses btrfs you can use the following blueprint:
 ----
 [[customizations.disk.partitions]]
 type = "btrfs"
-minsize = "1 GiB"
+minsize = "3 GiB"
 subvolumes = [
   { name = "root", mountpoint = "/" },
 ]
 ----
-
-This will convert the partition that contains the root mountpoint `/` to a btrfs volume containing a root subvolume.
 
 ==== lvm
 
@@ -34,7 +32,7 @@ To build an image that uses LVM:
 ----
 [[customizations.disk.partitions]]
 type = "lvm"
-minsize = "1 GiB"
+minsize = "3 GiB"
 ----
 
 This will convert the partition that contains the root mountpoint `/` to an LVM Volume Group containing a root Logical Volume.
