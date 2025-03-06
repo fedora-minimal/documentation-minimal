@@ -34,3 +34,14 @@ minsize = "3 GiB"
 This will convert the partition that contains the root mountpoint `/` to an LVM Volume Group containing a root Logical Volume.
 
 == Users
+
+You can add, or modify users in the image you are building with the `users` customization. Users are identified by name. If the user already exists (for example, because one of the packages you installed created the user) it will be modified. If the user doesn't exist it will be created.
+
+[source,toml]
+----
+[[customizations.users]]
+name = "myuser"
+key = "ssh-ed25519 AAxxxAA user@host"
+----
+
+Will create or update the user by the name of `myuser` setting their SSH authorized keys to the given key. For more options read the https://osbuild.org/docs/user-guide/blueprint-reference/#additional-users[upstream documentation] for `image-builder`.
