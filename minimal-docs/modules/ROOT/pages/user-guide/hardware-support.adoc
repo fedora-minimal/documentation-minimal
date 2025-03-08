@@ -1,0 +1,3 @@
+= Hardware Support
+
+*Fedora Minimal* by default works well with UEFI speaking bootloaders. Disks are partitioned with GPT.

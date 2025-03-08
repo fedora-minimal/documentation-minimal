@@ -5,3 +5,4 @@
 ** xref:user-guide/installation.adoc[Installation]
 ** xref:user-guide/customization/index.adoc[Customization]
 *** xref:user-guide/customization/common.adoc[Common Blueprints]
+** xref:user-guide/hardware-support.adoc[Hardware Support]

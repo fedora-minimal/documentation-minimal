@@ -73,7 +73,7 @@ This will convert the partition that contains the root mountpoint `/` to an LVM 
 
 === Using a DOS partition table
 
-You can switch from a GPT partitioned disk to one that uses DOS partitioning. This might be necessary to be able to boot on some machines such as the Raspberry Pi 3. For more tricks for specific hardware take a look at xref:user-guide/hardware-support.adoc[hardware support].
+You can switch from a GPT partitioned disk to one that uses DOS partitioning. This might be necessary to be able to boot on some machines such as the Raspberry Pi 3. For more tricks for specific hardware take a look at xref:../user-guide/hardware-support.adoc[hardware support].
 
 [source,toml]
 ----
