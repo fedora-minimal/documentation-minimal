@@ -1,1 +1,3 @@
 = User Guide
+
+Information for users of *Fedora Minimal*. To be expanded.
