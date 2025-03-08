@@ -29,6 +29,10 @@ packages = [
     { name = "fuse" },
     { name = "kde-l10n" },
 ]
+
+# We need a bit more space than the default 4 GiB for the
+# disk image.
+customizations.disk.minsize = "10 GiB"
 ----
 
 You might be wondering why packages are objects with a `name` key. That's because you can also supply `version` to install a package at a specific version, given that it is available in the repositories.
