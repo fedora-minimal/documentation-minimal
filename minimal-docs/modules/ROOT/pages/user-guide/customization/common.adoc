@@ -2,6 +2,37 @@
 
 == Packages
 
+Adding some packages to *Fedora Minimal* to make it yours is the customization most people make.
+
+[source,toml]
+----
+packages = [
+    { name = "tmux" },
+    { name = "python3" },
+]
+----
+
+You can also refer to composition groups in the same way. The following setup mimicks Fedora KDE. Note that this does *not* turn your built image into Fedora KDE. Fedora KDE artifacts are tested by a group of people, while customizations applied on top of Fedora Minimal are not.
+
+[source,toml]
+----
+packages = [
+    { name = "@kde-desktop-environment" },
+    { name = "@kde-apps" },
+    { name = "@kde-media" },
+    { name = "@kde-pim" },
+    { name = "@kde-spin-initial-setup" },
+    { name = "@firefox" },
+    { name = "@libreoffice" },
+    { name = "libreoffice-draw" },
+    { name = "libreoffice-math" },
+    { name = "fuse" },
+    { name = "kde-l10n" },
+]
+----
+
+You might be wondering why packages are objects with a `name` key. That's because you can also supply `version` to install a package at a specific version, given that it is available in the repositories.
+
 == Partitioning
 
 By default *Fedora Minimal* uses "raw" GPT partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways. If you want to know more about partitioning and how it behaves you can read the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
