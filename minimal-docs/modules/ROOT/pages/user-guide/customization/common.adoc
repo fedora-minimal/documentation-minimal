@@ -4,7 +4,7 @@
 
 == Partitioning
 
-By default *Fedora Minimal* uses raw partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways. If you want to know more about partitioning and how it behaves you can read the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
+By default *Fedora Minimal* uses "raw" GPT partitioning with an `ext4` root partition mounted at `/`. This can be changed in the following ways. If you want to know more about partitioning and how it behaves you can read the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
 
 === btrfs
 
@@ -35,6 +35,16 @@ minsize = "3 GiB"
 ----
 
 This will convert the partition that contains the root mountpoint `/` to an LVM Volume Group containing a root Logical Volume.
+
+=== Using a DOS partition table
+
+You can switch from a GPT partitioned disk to one that uses DOS partitioning. This might be necessary to be able to boot on some machines such as the Raspberry Pi 3. For more tricks for specific hardware take a look at xref:user-guide/hardware-support.adoc[hardware support].
+
+[source,toml]
+----
+[customizations.disk]
+type = "dos"
+----
 
 == Users
 
