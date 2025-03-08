@@ -8,7 +8,7 @@ By default *Fedora Minimal* uses raw partitioning with an `ext4` root partition 
 
 === btrfs
 
-To build an image that uses btrfs you can use the following blueprint:
+To build an image that uses btrfs you can use the following blueprint. This mimicks the Fedora Workstation subvolumes.
 
 [source,toml]
 ----
@@ -17,8 +17,11 @@ type = "btrfs"
 minsize = "3 GiB"
 subvolumes = [
   { name = "root", mountpoint = "/" },
+  { name = "home", mountpoint = "/home" },
 ]
 ----
+
+It can be wise to also have `/var` on a separate subvolume.
 
 === lvm
 
