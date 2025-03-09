@@ -1,6 +1,6 @@
 = Blueprints 
 
-Blueprints are the format used by `image-builder`, which is a tool you can use to build your *Fedora Minimal* with customizations. The below examples are short, use case specific, examples of blueprints. You can find more about blueprints at the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
+Blueprints are the format used by `image-builder`, which is a tool you can use to build your *Fedora Minimal* with xref:./index.adoc[build time] customizations. The below examples are short, use case specific, examples of blueprints. You can find more about blueprints at the https://osbuild.org/docs/user-guide/partitioning/[upstream documentation] for `image-builder`.
 
 The below examples can be put into a file called `my-minimal.toml` (or any filename you prefer) and passed to `image-builder`:
 
