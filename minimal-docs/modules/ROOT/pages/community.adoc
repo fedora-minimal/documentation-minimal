@@ -1,1 +1,20 @@
 = Community
+
+== Matrix
+
+Quick questions and chat with other users of *Fedora Minimal* mostly takes place in our #minimal:fedoraproject.org[Matrix channel].
+
+== Bugs
+
+=== Documentation
+
+Have you found a typo, a link that doesn't work, or do you feel something should be written down when it isn't? Any issues with the documentation or pull requests to improve documentation should be filed at https://github.com/fedora-minimal/documentation-minimal[its repository].
+
+=== Distribution
+
+The distribution concerns itself with what *Fedora Minimal* is and its base setup. Its default configuration files, default partitioning, and the default set of packages. Some examples of distribution bugs would be:
+
+1. `systemd-firstboot` is not letting me set a root password on first boot.
+2. *Fedora Minimal* doesn't boot on my Pi 5.
+
+If you find bugs of this sort, or want to discuss package removals and default configuration don't hesistate to file an issue at the https://github.com/fedora-minimal/distribution-minimal[distribution repository].
