@@ -1,3 +1,44 @@
 = Hardware Support
 
 *Fedora Minimal* by default works well with UEFI speaking bootloaders. Disks are partitioned with GPT.
+
+== Specific
+
+Some platforms require specific customizations to boot or work well. 
+
+=== Raspberry Pi 3
+
+The Raspberry Pi 3 does not understand the default GPT disk layouts that *Fedora Minimal* uses. You can use the following xref:./customization/blueprint.adoc[partition customization] to build an image that supports it.
+
+[source,toml]
+----
+[customizations.disk]
+type = "dos"
+----
+
+Note that this changes the partition table to the DOS format which has implications for any further partitioning you might want to do.
+
+=== Raspberry Pi 5
+
+The Raspberry Pi 5 does not yet have good upstream support in the kernel. This means that in general Fedora variants don't work on it, or work partially. There are kernels available in COPR which have additional potential patches which aren't yet available in the kernels Fedora uses. While these won't make _everything_ work, more things will work.
+
+With the following xref:./customization/blueprint.adoc[blueprint] to enable the repository for updates after the system has booted.
+
+[source,toml]
+----
+[[customizations.repositories]]
+id = "copr:copr.fedorainfracloud.org:pbrobinson:a64-kernel"
+name = "Copr repo for a64-kernel owned by pbrobinson"
+baseurls = ["https://download.copr.fedorainfracloud.org/results/pbrobinson/a64-kernel/fedora-$releasever-$basearch/"]
+enabled = true
+----
+
+And the following xref:./customization/advanced.adoc[build command] to use the repository for system build:
+
+[source,console]
+----
+$ sudo image-builder --extra-repo https://download.copr.fedorainfracloud.org/results/pbrobinson/a64-kernel/fedora-$releasever-$basearch/ minimal-raw-zst
+# ...
+----
+
+You get a *Fedora Minimal* with the kernel and patches from the COPR repository which gives you the highest chance of the most things working. If you're only testing hardware bringup then the blueprint part can be skipped but you won't get updates to the kernel on the system after it has booted.
