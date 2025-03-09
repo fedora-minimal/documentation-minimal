@@ -40,7 +40,7 @@ $ sudo image-builder build --distro fedora-43 --blueprint my-changes.toml minima
 
 Will get you a *Fedora Minimal* with `tmux`, and `firewalld` installed and a user called `user` with the given SSH key in its authorized keys.
 
-We have a list of xref:user-guide/customization/common.adoc[common blueprints] handy for you if you want some inspiration of what is possible. If you want to know more you can also read the `image-builder` https://osbuild.org/docs/user-guide/blueprint-reference/[documentation on the blueprint format].
+We have a list of xref:user-guide/customization/blueprint.adoc[blueprint examples] handy for you if you want some inspiration of what is possible. If you want to know more you can also read the `image-builder` https://osbuild.org/docs/user-guide/blueprint-reference/[documentation on the blueprint format].
 
 === Provision Time
 
