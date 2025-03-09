@@ -1,4 +1,5 @@
 * xref:index.adoc[Welcome]
+* xref:community.adoc[Community]
 * xref:changelog.adoc[Changelog]
 
 * xref:user-guide/index.adoc[User Guide]
