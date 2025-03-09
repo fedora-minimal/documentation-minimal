@@ -13,7 +13,7 @@ $ sudo image-builder build --blueprint my-minimal.toml minimal-raw-zst
 
 == Packages
 
-Adding some packages to *Fedora Minimal* to make it yours is the customization most people make.
+Adding some packages to *Fedora Minimal* to make it yours is the customization most people make. If you want to have your packages come from custom repositories such as RPMfusion, COPR, or vendor repositories, take a look at <<Repositories,repository customization>> as well.
 
 [source,toml]
 ----
@@ -23,7 +23,7 @@ packages = [
 ]
 ----
 
-You can also refer to composition groups in the same way. The following setup mimicks Fedora KDE. Note that this does *not* turn your built image into Fedora KDE. Fedora KDE artifacts are tested by a group of people, while customizations applied on top of Fedora Minimal are not.
+It's also possible to refer to composition groups, which are used to group relevant packages together. The following setup mimicks Fedora KDE. Note that this does *not* turn your built image into Fedora KDE. Fedora KDE artifacts are tested by a group of people, while customizations applied on top of Fedora Minimal are not.
 
 [source,toml]
 ----
@@ -104,3 +104,21 @@ key = "ssh-ed25519 AAxxxAA user@host"
 ----
 
 Will create or update the user by the name of `myuser` setting their SSH authorized keys to the given key. For more options read the https://osbuild.org/docs/user-guide/blueprint-reference/#additional-users[upstream documentation] for `image-builder`.
+
+== Repositories
+
+Sometimes you'll want additional repositories to be used by your image. These values are (mostly) the same as what you would find in a repository configuration for `dnf`.
+
+[source,toml]
+----
+[[customizations.repositories]]
+id = "example"
+name = "An example repository"
+baseurls = ["https://example.com/"]
+enabled = true
+install_from = true
+----
+
+This example will add the `example` repository to be used when installing packages from your <<Packages,package customization>> and be configured in the resulting image to be available to `dnf`.
+
+It is important to note that `image-builder` makes a distinction between repositories used to assemble the system and those used for the <<Packages,package customization>>. If you want to enable, or replace, repositories used to assemble the system itself then read the xref:./advanced.adoc[advanced customization] page.
