@@ -1,1 +1,28 @@
 = Advanced Customization
+
+Some customizations aren't available, or easy, with xref:./blueprint.adoc[blueprints]. This is because while some care is taken to not break builds when using blueprints there are things which have a larger chance of breaking a build.
+
+== Repositories
+
+While you can configure xref:./blueprint.adoc[repositories] that are used for additional packages these repositories do not affect those used for the system itself. If you want to change where packages used to assemble the system itself come from you can do so in the following ways.
+
+=== Extra
+
+Adding an additional repository allows you to enable (for example) COPR repositories for other kernels. Packages available in the repository are used as normal, if they have higher versions they are preferred to those from other repositories.
+
+[source,console]
+----
+$ sudo image-builder --extra-repo https://copr/ minimal-raw-zst
+# ...
+----
+
+=== Force
+
+You can also replace all repositories used to assemble the base system, this is more useful if you want to for example build a repository from a specific compose. The repository will need to contain all packages that *Fedora Minimal* requires.
+
+[source,console]
+----
+$ sudo image-builder --force-repo https://copr/ minimal-raw-zst
+# ...
+----
+
