@@ -37,7 +37,7 @@ And the following xref:./customization/advanced.adoc[build command] to use the r
 
 [source,console]
 ----
-$ sudo image-builder --extra-repo 'https://download.copr.fedorainfracloud.org/results/pbrobinson/a64-kernel/fedora-$releasever-$basearch/' minimal-raw-zst
+$ sudo image-builder build --extra-repo 'https://download.copr.fedorainfracloud.org/results/pbrobinson/a64-kernel/fedora-$releasever-$basearch/' minimal-raw-zst
 # ...
 ----
 
