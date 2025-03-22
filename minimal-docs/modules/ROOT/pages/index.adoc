@@ -19,6 +19,8 @@ These are the differences we feel are the most important and users should be awa
 
 Many Fedora variants have _firewalld_ installed and enabled by default. *Fedora Minimal* does not ship with `firewalld` nor any other firewall by default allowing you to pick and choose instead.
 
+*Starting from*: Fedora 43.
+
 === `ext4` on `/`
 
 Most Fedora variants have _btrfs_ on their root partition. It is something Fedora is well known for. *Fedora Minimal* opts to have the `ext4` filesystem on its root partition:
