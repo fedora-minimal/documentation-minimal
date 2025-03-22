@@ -6,7 +6,7 @@ During this release we focused on minimizing the package set that is installed b
 
 - Disabled rescue kernel generation on boot. This was accidentally enabled again in one of the previous versions but turned off again in Fedora 43. See https://github.com/fedora-minimal/distribution-minimal/issues/10[discussion].
 - Removed `firewalld` from the package set. See https://github.com/fedora-minimal/distribution-minimal/issues/1[discussion].
-
+- Disabled `/etc/fstab`, only mount units are available by default. See https://github.com/fedora-minimal/distribution-minimal/issues/15[discussion].
 
 == Fedora 42
 

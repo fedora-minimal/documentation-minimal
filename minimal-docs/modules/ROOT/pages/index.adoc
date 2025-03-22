@@ -29,3 +29,9 @@ Most Fedora variants have _btrfs_ on their root partition. It is something Fedor
 Because *Fedora Minimal* focuses on customizability it can be xref:user-guide/installation.adoc[built] with btrfs, see our xref:user-guide/customization/common.adoc#_btrfs[common blueprints].
 
 *Starting from*: Fedora 38.
+
+=== No `/etc/fstab` ===
+
+*Fedora Minimal* uses mount units and the discoverable partition specification by default. This means it ships without an `/etc/fstab` file. You can still create one if you prefer it.
+
+*Starting from*: Fedora 43.
