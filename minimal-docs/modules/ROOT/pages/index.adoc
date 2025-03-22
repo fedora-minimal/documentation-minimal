@@ -28,7 +28,7 @@ Most Fedora variants have _btrfs_ on their root partition. It is something Fedor
 - Our images want to require minimal support from firmware to be booted. This means that sometimes we have to deal with situations where firmware wants to read directly from the root filesystem. btrfs support exists in firmware such as u-boot, however it is often turned off or not available.
 - We want to support `systemd-firstboot --image=` for our users to provision images before booting them. `systemd-firstboot --image=` does not currently understand a _btrfs_ root partition.
 
-Because *Fedora Minimal* focuses on customizability it can be xref:user-guide/installation.adoc[built] with btrfs, see our xref:user-guide/customization/common.adoc#_btrfs[common blueprints].
+Because *Fedora Minimal* focuses on customizability it can be xref:user-guide/installation.adoc[built] with btrfs, see our xref:user-guide/customization/blueprint.adoc#_btrfs[blueprints].
 
 *Starting from*: Fedora 38.
 
